@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Route;
 });
 */
 
-Route::view('/','welcome');
+Route::view('/','inicio')->name('rutainicio');
 
-Route::view('/formulario','formulario');
+Route::view('/formulario','formulario')->name('rutaformulario');
+
+Route::view('/consultar','clientes')->name('rutaconsulta');
+
+
+
+
