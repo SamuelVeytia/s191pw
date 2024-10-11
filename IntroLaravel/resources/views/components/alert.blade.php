@@ -1,3 +1,8 @@
-<div>
-    <!-- The biggest battle is the war against ignorance. - Mustafa Kemal Atatürk -->
+
+<div class="container mt-4">
+
+<div class="alert alert-{{ $tipo }} " role="alert">
+    Soy un alert {{ $slot }}
+</div>
+
 </div>
