@@ -5,16 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @vite(['resources/js/app.js'])
-    <title>Document</title>
+    <title>@yield('titulo')</title>
 </head>
 <body>
 
-<nav class="navbar bg-body-tertiary">
-  <form class="container-fluid justify-content-start">
-    <button class="btn btn-outline-success me-2" type="button">Main button</button>
-    <button class="btn btn-sm btn-outline-secondary" type="button">Smaller button</button>
-  </form>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+<span class="navbar-toggler-icon"></span>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="/">PORTADA  </a>
+      
+      </div>
+    </div>
+  </div>
 </nav>
+
+@yield('contenido')
     
 </body>
 </html>
