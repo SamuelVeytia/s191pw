@@ -19,7 +19,20 @@ class ControladorVistas extends Controller
         
     }
     public function procesarCliente(Request $peticion) {
+
+        $validacion= $peticion->validate([
+            'txtnombre'=>'required|min:3|max:20',
+            'txtapellido'=>'required',
+            'txtcorreo'=>'required|email:rfc,dns',
+            'txttelefono'=>'required',
+        ]);
         
+        //redireccion enviado en msj de session
+        $usuario= $peticion->input('txtnombre');
+        session()->flash('exito','Se guardo el usuario: '.$usuario);
+        return to_route('rutaformulario');
+
+
         //redireccion usando la ruta
        // return redirect('/');
 
@@ -32,14 +45,6 @@ class ControladorVistas extends Controller
         //redireccion con valores adjuntos (variables, arreglos, etc ...)
         //$id=[['usuario'=>'1'],['usuario'=>'2']];
         //return view('formulario', compact('id'));
-
-        //redireccion enviado en msj de session
-        $usuario= $peticion->input('txtnombre');
-        session()->flash('exito','Se guardo el usuario: '.$usuario);
-        return to_route('rutaformulario');
-
-
-
 
 
         //respuesta a la petición POST
