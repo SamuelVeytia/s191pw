@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\controladorvistas;
 
-Route::view('/','principal')->name('rutaprincipal');
-Route::view('/registro','registrolibro')->name('rutaregistro');
+Route::get('/',[controladorvistas::class,'inicio'])->name('rutaprincipal');
+Route::get('/registrolibro',[controladorvistas::class,'formulario'])->name('rutaregistro');
