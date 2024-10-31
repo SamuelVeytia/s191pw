@@ -21,42 +21,42 @@
         </div>
 <br>
         <div>
-        <label for="titulo">Título:</label> 
+        <label for="titulo">{{ __('Título:')}}</label> 
         <input type="text"  name="titulo"  value="{{old('titulo')}}">
         <small class="text-danger fst-italic">{{ $errors->first('titulo') }}</small>
         </div>
 <br>
         <div>
-        <label for="autor">Autor:</label>
+        <label for="autor">{{ __('Autor:')}}</label>
         <input type="text"  name="autor"  value="{{old('autor')}}">
         <small class="text-danger fst-italic">{{ $errors->first('autor') }}</small>
         </div>
 <br>
         <div>
-        <label for="paginas">Páginas:</label>
+        <label for="paginas">{{ __('Páginas:')}}</label>
         <input type="text"  name="paginas"  value="{{old('paginas')}}">
         <small class="text-danger fst-italic">{{ $errors->first('paginas') }}</small>
         </div>
 <br>
         <div>
-        <label for="año">Año:</label>
+        <label for="año">{{ __('Año:')}}</label>
         <input type="text" name="año"  value="{{old('año')}}">
         <small class="text-danger fst-italic">{{ $errors->first('año') }}</small>
         </div>
 <br>   
         <div>
-        <label for="editorial">Editorial:</label>
+        <label for="editorial">{{ __('Editorial:')}}</label>
         <input type="text"  name="editorial"  value="{{old('editorial')}}">
         <small class="text-danger fst-italic">{{ $errors->first('editorial') }}</small>
         </div>
 <br>
 <div>
-        <label for="correo">Correo de editorial:</label>
+        <label for="correo">{{ __('Correo de la editorial:')}}:</label>
         <input type="text"  name="correo"  value="{{old('correo')}}">
         <small class="text-danger fst-italic">{{ $errors->first('correo') }}</small>
         </div>
 <br>
-        <button type="submit" class="btn btn-primary btn-lg" style="background-color: indigo; border-color: black">Registrar</button>
+        <button type="submit" class="btn btn-primary btn-lg" style="background-color: indigo; border-color: black">{{ __('Registrar')}}</button>
 
         
     </form>

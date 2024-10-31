@@ -19,8 +19,8 @@
 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup" >
       <div class="navbar-nav">
-        <a class="nav-link  {{ request()->routeIs('rutaprincipal')?"text-warning":""  }}" aria-current="page" href=" {{ route('rutaprincipal')  }}" style="color: white">Principal</a>
-        <a class="nav-link  {{ request()->routeIs('rutaregistro')?"text-warning":""  }}" href="{{ route('rutaregistro')  }}" style="color: white">Registro</a>
+        <a class="nav-link  {{ request()->routeIs('rutaprincipal')?"text-warning":""  }}" aria-current="page" href=" {{ route('rutaprincipal')  }}" style="color: white">{{ __('Principal')}}</a>
+        <a class="nav-link  {{ request()->routeIs('rutaregistro')?"text-warning":""  }}" href="{{ route('rutaregistro')  }}" style="color: white">{{ __('Registro de libros')}}</a>
       </div>
     </div>
   </div>
