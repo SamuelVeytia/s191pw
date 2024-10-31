@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\validadorLibro;
 
 class controladorvistas extends Controller
 {
@@ -14,7 +15,8 @@ class controladorvistas extends Controller
         return view('registrolibro');
     }
 
-    public function registrar(Request $peticion){
+    public function registrar(validadorLibro $peticion){
+
         $libro= $peticion->input('titulo');
         session()->flash('correcto',"Libro $libro guardado");
         return to_route('rutaregistro');
