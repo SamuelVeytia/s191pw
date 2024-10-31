@@ -15,6 +15,8 @@ class controladorvistas extends Controller
     }
 
     public function registrar(Request $peticion){
-        return $peticion->all();
+        $libro= $peticion->input('titulo');
+        session()->flash('correcto',"Libro $libro guardado");
+        return to_route('rutaregistro');
     }
 }

@@ -2,11 +2,21 @@
     @section('contenido')
    <div class="container mt-5 col-md-6">
 
+   @session('correcto')
+   <script>
+                Swal.fire({
+                title: "Todo correcto",
+                text: "{{ $value }}",
+                icon: "success"
+                });
+   </script>
+   @endsession
+
    <form  method="POST" action="/registrar">
         @csrf
         <div>
         <label for="isbn">ISBN:</label>
-        <input type="number"  name="isbn" required value="{{old('isbn')}}">
+        <input type="number"  name="isbn"  value="{{old('isbn')}}">
         </div>
 <br>
         <div>
