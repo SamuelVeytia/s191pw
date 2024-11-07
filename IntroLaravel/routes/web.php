@@ -7,11 +7,11 @@ Route::get('/',[ControladorVistas::class, 'home'])->name ('rutainicio');
 Route::get('/formulario',[ControladorVistas::class, 'insert'])->name ('rutaformulario');
 Route::get('/clientes',[ControladorVistas::class, 'select'])->name ('rutaconsulta');
 
+
+
 Route::post('/enviarCliente',[ControladorVistas::class,'procesarCliente'])->name('rutaenviar');
 
 Route::view('component','componentes')->name('rutacomponentes');
-
-
 
 
 /*

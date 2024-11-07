@@ -21,4 +21,4 @@ class controladorvistas extends Controller
         session()->flash('correcto',"Libro $libro guardado");
         return to_route('rutaregistro');
     }
-}
+} 
