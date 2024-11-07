@@ -11,7 +11,7 @@ class validadorUsuarios extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class validadorUsuarios extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'correo'=>'required|email:rfc,dns',
+            'passw'=>'required|min:3|max:20',
+            'edad'=>'required|numeric|min:18|max:100',
+    
         ];
     }
 }
