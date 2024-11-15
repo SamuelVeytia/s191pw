@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB; //Importación de Query Builder
+use Carbon\Carbon; 
+Use App\Http\Requests\validadorCliente;
 
-class controladorCRUD extends Controller
+class clienteController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,15 +22,26 @@ class controladorCRUD extends Controller
      */
     public function create()
     {
-        //
+        return view('formulario');
     }
 
     /**
-     * Store a newly created resource in storage.
+     *Aquí preparo el insert
      */
-    public function store(Request $request)
+    public function store(validadorCliente $request)
     {
-        //
+        DB::table('cliente')->insert([
+            "nombre"=>$request->input('txtnombre'),
+            "apellido"=>$request->input('txtapellido'),
+            "correo"=>$request->input('txtcorreo'),
+            "telefono"=>$request->input('txttelefono'),
+            "created_at"=>Carbon::now(),
+            "updated_at"=>Carbon::now(),
+        ]);
+        $usuario= $request->input('txtnombre');
+        session()->flash('exito','Se guardo el usuario: '.$usuario);
+
+        return to_route('rutaformulario');
     }
 
     /**
