@@ -1,30 +1,26 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ControladorVistas;
 use App\Http\Controllers\clienteController;
 
 //**************************************************************************************** */
 // Rutas para trabajar con el controlador vistas 
 
-Route::get('/',[ControladorVistas::class, 'home'])->name ('rutainicio');
+//Route::get('/',[ControladorVistas::class, 'home'])->name ('rutainicio');
 //Route::get('/formulario',[ControladorVistas::class, 'insert'])->name ('rutaformulario');
-Route::get('/clientes',[ControladorVistas::class, 'select'])->name ('rutaconsulta');
-Route::post('/enviarCliente',[ControladorVistas::class,'procesarCliente'])->name('rutaenviar');
+//Route::get('/clientes',[ControladorVistas::class, 'select'])->name ('rutaconsulta');
+//Route::post('/enviarCliente',[ControladorVistas::class,'procesarCliente'])->name('rutaenviar');
 
-// Route::view('component','componentes')->name('rutacomponentes');
+// Route::view('component','componentes')->name('rutacomponentes'); 
 
 // ****************************************************************************************  
 
  //Rutas para trabajar con el clienteController 
 
 Route::get('/cliente/create',[clienteController::class, 'create'])->name ('rutaformulario');
-
-
-
-
-
-
+Route::post('/cliente',[clienteController::class,'store'])->name('rutaenvia');
+Route::get('/',[clienteController::class,'home'])->name('rutainicio');
+Route::get('/cliente',[clienteController::class,'index'])->name('rutaconsulta');
 
 
 
@@ -40,7 +36,3 @@ Route::view('/formulario','formulario')->name('rutaformulario');
 
 Route::view('/consultar','clientes')->name('rutaconsulta');
 */
-
-
-
-
