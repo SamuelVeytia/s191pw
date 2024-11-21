@@ -3,10 +3,16 @@
 @section('titulo', 'Editar Cliente')
 
 @section('contenido2')
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <div class="container mt-5 col-md-8">
+
+
+
     <form action="{{ route('clientesupdate', $cliente->id) }}" method="POST">
         @csrf
         @method('PUT')
+       
         
         <div class="mb-3">
             <label for="txtnombre" class="form-label">Nombre</label>

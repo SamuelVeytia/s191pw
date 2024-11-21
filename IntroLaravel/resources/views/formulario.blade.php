@@ -11,14 +11,11 @@
 <x-Alert tipo="success">{{session ('exito')}}</x-Alert>
 @endif
 
-@session('exito')
-<x-Alert tipo="warning">{{ $value }}</x-Alert>
-@endsession
 
 @session('exito')
 <script>
       Swal.fire({
-        title: "Respuesta del servidor",
+        title: "Cliente registrado",
         text: '{{ $value }}',
         icon: "success"});
 </script>

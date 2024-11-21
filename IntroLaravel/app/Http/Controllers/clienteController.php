@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\DB; //Importación de Query Builder
 use Carbon\Carbon; 
 Use App\Http\Requests\validadorCliente;
@@ -82,7 +82,11 @@ class clienteController extends Controller
             "telefono"=>$request->input('txttelefono'),
             "updated_at"=>Carbon::now(),
         ]);
+        $usuario= $request->input('txtnombre');
+        session()->flash('update','Se actualizó el cliente'.$usuario);
+
         return to_route('rutaconsulta');
+   
     }
 
     /**
@@ -90,11 +94,13 @@ class clienteController extends Controller
      */
     public function destroy($id)
     {
+    $cliente = DB::table('cliente')->where('id', $id)->first();
+
     DB::table('cliente')
     ->where('id', $id)
     ->delete();
-
-    session()->flash('destroy', 'El cliente ha sido eliminado exitosamente.');
-    return redirect()->route('rutaconsulta');
+    
+    session()->flash('destroy', 'El cliente ' . $cliente->nombre . ' ha sido eliminado exitosamente.');
+    return to_route('rutaconsulta');
     }
 }
