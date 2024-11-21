@@ -25,6 +25,21 @@ Route::get('/cliente',[clienteController::class,'index'])->name('rutaconsulta');
 
 
 
+// Ruta para mostrar el formulario donde vamos a editar a los clientes
+Route::get('/cliente/{id}/edit', [clienteController::class, 'edit'])->name('clientesedit');
+
+// Ruta para procesar la actualización
+Route::put('/cliente/{id}', [clienteController::class, 'update'])->name('clientesupdate');
+
+//Ruta para eliminar un cliente
+Route::delete('/cliente/{id}', [clienteController::class, 'destroy'])->name('clientesdestroy');
+
+
+
+
+
+
+
 
 
 
