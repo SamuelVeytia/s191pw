@@ -7,7 +7,7 @@
 
 <div class="container mt-5 col-md-8">
 
-    @if (session('destroy'))
+@session('destroy')
     <script>
         Swal.fire({
             icon: 'success',
@@ -17,7 +17,7 @@
             showConfirmButton: false
         });
     </script>
-    @endif
+@endsession
     
 
     @session('update')
@@ -28,8 +28,6 @@
         icon: "success"});
     </script>
 @endsession
-
-
 
 
 
@@ -49,7 +47,7 @@
         <div class="card-footer text-muted">
             <a href="{{ route('clientesedit', $cliente->id) }}" class="btn btn-warning btn-sm"> {{ __('Actualizar') }} </a>
             
-            <form id="form-eliminar-{{ $cliente->id }}" action="{{ route('clientesdestroy', $cliente->id) }}" method="POST" style="display: inline;">
+            <form id="form_eliminar-{{ $cliente->id }}" action="{{ route('clientesdestroy', $cliente->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="button" class="btn btn-danger btn-sm" onclick="confirmarEliminacion('{{ $cliente->id }}', '{{ $cliente->nombre }}')">
@@ -75,8 +73,7 @@
             cancelButtonText: 'Cancelar'
         }).then((result) => {
             if (result.isConfirmed) {
-                // Enviar el formulario correspondiente
-                document.getElementById(`form-eliminar-${id}`).submit();
+                document.getElementById(`form_eliminar-${id}`).submit();
             }
         });
     }
